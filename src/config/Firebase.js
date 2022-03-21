@@ -18,8 +18,15 @@ export const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider()
 
-export const sign_in_with_google = () => {
+export const sign_in_with_google = async () => {
     signInWithPopup(auth, provider).then((result) => {
-       console.log(result); 
+        const name = result.user.displayName;
+        const email = result.user.email;
+        const profilePic = result.user.photoURL;
+
+         localStorage.setItem("name", name)
+         localStorage.setItem("email", email)
+         localStorage.setItem("profilePic", profilePic)
+
     }).catch((err) => alert(err))
 }

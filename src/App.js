@@ -4,8 +4,6 @@ import { sign_in_with_google } from './config/Firebase';
 
 function App() {
 
-
-
   return (
       <div>
         <button onClick={sign_in_with_google}>Sign in with Google</button>
